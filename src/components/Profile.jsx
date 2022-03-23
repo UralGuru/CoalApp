@@ -1,12 +1,12 @@
 import { React } from 'react';
-import "./styles/Profile.css";
+import s from "./styles/Profile.module.css";
 import Bamboo from './images/profil_image.jpg';
 
 const Profile = () => {
     return (
-        <div className='content'>
+        <div className={s.content}>
             <div>
-                <img className='img-content' src={Bamboo}></img>
+                <img className={s.img_content} src={Bamboo}></img>
             </div>
             <div>
                 ava + des
@@ -17,10 +17,10 @@ const Profile = () => {
                     New post
                 </div>
                 <div>
-                    <div className='item'>
+                    <div className={s.item}>
                         Post 1
                     </div>
-                    <div className='item'>
+                    <div className={s.item}>
                         Post 2
                     </div>
                 </div>

@@ -4,5 +4,9 @@
 }
 
 .item {
-    color: rgb(255, 0, 0);
+    text-decoration: none;
+}
+
+.item.active {
+    color: rgb(3, 3, 3);
 }
