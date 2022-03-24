@@ -9,10 +9,13 @@ const Profile = () => {
             <div>
                 <img className={s.img_content} src={Bamboo}></img>
             </div>
+
             <div>
                 ava + des
             </div>
+
             <MyPosts />
+
         </div>
     );
 }
