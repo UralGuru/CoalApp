@@ -1,15 +1,17 @@
 import {React} from 'react';
 import s from "./Post.module.css";
 
-const Post = () => {
+const Post = (props) => {
+    console.log(props.message);
     return (
         <div>
 
             <div className={s.item}>
                 <div className={s.circle}></div>
-                Post 1
+
+                {props.message}
                 <div>
-                    <span>like</span>
+                    <span>like {props.like_count}</span>
                 </div>
 
             </div>

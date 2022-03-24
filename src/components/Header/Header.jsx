@@ -1,10 +1,10 @@
 import { React } from 'react';
-import logoBamboo from '../images/logo.png';
-import "./Header.css";
+import logoBamboo from '../../images/logo.png';
+import s from "./Header.module.css";
 
 const Header = () => {
     return (
-        <header className='header'>
+        <header className={s.header}>
             <img src={logoBamboo} alt="logo-bamboo" />
         </header>
     );

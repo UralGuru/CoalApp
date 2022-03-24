@@ -1,11 +1,11 @@
 import { React } from 'react';
 import s from "./Profile.module.css";
-import Bamboo from '../images/profil_image.jpg';
+import Bamboo from '../../images/profil_image.jpg';
 import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img className={s.img_content} src={Bamboo}></img>
             </div>
