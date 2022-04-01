@@ -3,10 +3,13 @@
     background-color: #faeb1b;
 }
 
-.item {
+.item a {
+    margin: 5px;
     text-decoration: none;
+    color: #d07a05;
 }
 
-.item.active {
-    color: rgb(3, 3, 3);
+.item a.active {
+    color: #000000;
+    font-size: large;
 }

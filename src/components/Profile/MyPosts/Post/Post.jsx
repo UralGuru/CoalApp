@@ -9,8 +9,10 @@ const Post = (props) => {
             <div className={s.item}>
                 <div className={s.circle}></div>
 
-                {props.message}
+
                 <div>
+                    {props.message}
+                    <br/>
                     <span>like {props.like_count}</span>
                 </div>
 
