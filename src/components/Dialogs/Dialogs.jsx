@@ -6,7 +6,7 @@ const Dialogs = (props) => {
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 <div className={s.dialog + ' ' + s.active}>
-                    <NavLink to="/dialog">Ural</NavLink>
+                     Ural
                 </div>
                 <div className={s.dialog}>Dimych</div>
                 <div className={s.dialog}>Dunya</div>
