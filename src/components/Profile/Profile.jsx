@@ -2,18 +2,12 @@ import { React } from 'react';
 import s from "./Profile.module.css";
 import Bamboo from '../../images/profil_image.jpg';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
     return (
         <div>
-            <div>
-                <img className={s.img_content} src={Bamboo}></img>
-            </div>
-
-            <div>
-                ava + des
-            </div>
-
+            <ProfileInfo />
             <MyPosts />
 
         </div>

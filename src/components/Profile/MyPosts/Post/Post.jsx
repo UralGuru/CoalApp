@@ -10,10 +10,17 @@ const Post = (props) => {
                 <div className={s.circle}></div>
 
 
-                <div>
-                    {props.message}
+                <div className={s.post}>
+                    <div>
+                        {props.message}
+                    </div>
+
                     <br/>
-                    <span>like {props.like_count}</span>
+
+                    <div>
+                        Like {props.like_count}
+                    </div>
+
                 </div>
 
             </div>
