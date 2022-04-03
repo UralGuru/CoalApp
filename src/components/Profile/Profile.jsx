@@ -1,17 +1,13 @@
-import { React } from 'react';
-import s from "./Profile.module.css";
-import Bamboo from '../../images/profil_image.jpg';
+import {React} from 'react';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
-    return (
-        <div>
-            <ProfileInfo />
-            <MyPosts />
+const Profile = (props) => {
+    return (<div>
+        <ProfileInfo/>
+        <MyPosts posts={props.state.posts}/>
 
-        </div>
-    );
+    </div>);
 }
 
 export default Profile
