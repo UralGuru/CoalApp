@@ -6,11 +6,15 @@ const MyPosts = (props) => {
 
     let getPost = props.posts.map( p => <Post message={p.message} like_count={p.like_count} />)
 
+
+
+
+
     return (<div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea id="123"></textarea>
                 </div>
 
                 <button>Add post</button>
