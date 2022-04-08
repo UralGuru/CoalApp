@@ -21,10 +21,8 @@ const App = (props) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path="/profile" element={<Profile
-                            state={props.state.profilePage}
-                            newPostText={props.state.profilePage.newPostText}
-                            updateNewPost={props.updateNewPost}
-                            addNewPost={props.addNewPost}/>}/>
+                            profilePage={props.state.profilePage}
+                            dispatch={props.dispatch}/>}/>
 
                         <Route exact path="/dialogs" element={<Dialogs state={props.state.messagePage}/>}/>
 

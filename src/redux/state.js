@@ -22,10 +22,18 @@ let store = {
                 {id: 4, mes: "Yo"}]
         }
     },
+    _callSubscriber () {
+        console.log("temp");
+    },
+
+
     getState() {
         return this._state
     },
-    _callSubscriber () { console.log("temp"); },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
     addNewPost() {
         let newPost = {
             id: 5,
@@ -43,9 +51,26 @@ let store = {
 
         this._callSubscriber(this._state);
     },
-    subscribe(observer) {
-        this._callSubscriber = observer;
+
+    dispatch(action){
+        if (action.type === 'ADD-POST'){
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                like_count: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+
+        }else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+
+            this._state.profilePage.newPostText = action.newMessage;
+            this._callSubscriber(this._state);
+        }
     }
 }
+
+
 window.store = store;
 export default store;
