@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import store from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import App from "./App";
 
@@ -17,7 +17,12 @@ export let renderEntireTree = (state) => {
 };
 
 renderEntireTree(store.getState());
-store.subscribe(renderEntireTree);
+
+store.subscribe(() => {
+    let state = store.getState();
+    renderEntireTree(state);
+});
+
 reportWebVitals();
 
 
