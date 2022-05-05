@@ -1,59 +1,56 @@
 import React from 'react';
 import s from "../Profile/MyPosts/Post/Post.module.css";
+import * as axios from "axios";
+import userPhoto from '../../assets/images/user.png'
 
-let Users = (props) => {
-    debugger;
+class Users extends React.Component{
+    constructor(props) {
+        super(props);
 
-    if(props.users.length === 0){
-        props.setUsers(
-
-            [{ id: 1, photoURL: '', followed: true, fullName: 'Batya', status: 'I am a boss', location: {city:'Minsk', country:'Belarus'} },
-                { id: 2, photoURL: '', followed: true, fullName: 'Pop', status: 'I am a Gad', location: {city:'Moscow', country:'Russia'} },
-                { id: 3, photoURL: '', followed: false, fullName: 'Mommy', status: 'No, I am a boss', location: {city:'Kiev', country:'Ukrain'} },
-                { id: 4, photoURL: '', followed: false, fullName: 'Vova', status: 'Kind man', location: {city:'Minsk', country:'Belarus'} },
-                { id: 5, photoURL: '', followed: true, fullName: 'Lesya', status: 'I am a boss too', location: {city:'EKB', country:'RF'} },
-                { id: 6, photoURL: '', followed: false, fullName: 'Borya', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },
-                { id: 7, photoURL: '', followed: true, fullName: 'Liss', status: 'I am a boss too', location: {city:'EKB', country:'RF'} },
-                { id: 8, photoURL: '', followed: true, fullName: 'Nigger', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },
-                { id: 9, photoURL: '', followed: false, fullName: 'Boor', status: 'I am a boss too', location: {city:'EKB', country:'RF'} },
-                { id: 10, photoURL: '', followed: false, fullName: 'UrFU', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },
-                { id: 11, photoURL: '', followed: false, fullName: 'Love', status: 'I am a boss too', location: {city:'EKB', country:'RF'} },
-                { id: 12, photoURL: '', followed: false, fullName: 'Ssu', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },
-                { id: 13, photoURL: '', followed: false, fullName: 'Klass', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },
-                { id: 14, photoURL: '', followed: false, fullName: 'Vitya', status: 'I am a boss too', location: {city:'Minsk', country:'Belarus'} },]
-
-        );
+        if(this.props.users.length === 0){
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons =>{
+                this.props.setUsers(respons.data.items);
+            });
+        }
     }
 
+    getUsers = () => {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons =>{
+                this.props.setUsers(respons.data.items);
+            });
+    }
 
-
-
-    return <div>
-        {
-            props.users.map(u => <div key={u.id}>
+    render() {
+        return <div>
+            {
+                this.props.users.map(u => <div key={u.id}>
                 <span>
-                    <div className={s.circle}></div>
+
+                    <div>
+                        <img src={ u.photos.small != null ? u.photos.small : userPhoto} className={s.circle} alt=""/>
+                    </div>
                 </span>
-                <span>
-                    { u.followed
-                        ? <button onClick={() => {props.unfollow(u.id)}}>Unollow</button>
-                        : <button onClick={() => {props.follow(u.id)}}>Follow</button>}
-
-                </span>
-                <span>
                     <span>
-                        <div>{u.fullName}</div>
+                    { u.followed
+                        ? <button onClick={() => {this.props.unfollow(u.id)}}>Unollow</button>
+                        : <button onClick={() => {this.props.follow(u.id)}}>Follow</button>}
+
+                </span>
+                    <span>
+                    <span>
+                        <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
                     <span>
-                        <div>{u.location.country}</div>
-                        <div>{u.location.city}</div>
+                        <div>{'u.location.country'}</div>
+                        <div>{'u.location.city'}</div>
 
                     </span>
                 </span>
-            </div>)
-        }
-    </div>
+                </div>)
+            }
+        </div>
+    }
 }
 
-export default Users;
+export default Users

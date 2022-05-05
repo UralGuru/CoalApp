@@ -1,6 +1,6 @@
 import { React } from 'react';
 import s from "./ProfileInfo.module.css";
-import Bamboo from '../../../images/profil_image.jpg';
+import Bamboo from '../../../assets/images/profil_image.jpg';
 
 const Profile = () => {
     return (
