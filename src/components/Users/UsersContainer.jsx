@@ -16,10 +16,10 @@ import Preloader from "../common/Preloader/Preloader";
 class UsersAPIContainer extends React.Component{
 
     componentDidMount() {
-        this.props.toggleIsFething(true);
+        this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(respons =>{
-                this.props.toggleIsFething(false);
+                this.props.toggleIsFetching(false);
                 this.props.setUsers(respons.data.items);
                 this.props.setTotalUsersCount(respons.data.totalCount);
             });
@@ -27,10 +27,10 @@ class UsersAPIContainer extends React.Component{
 
     onPageChanged = (p) => {
         this.props.setCurrentPage(p) ;
-        this.props.toggleIsFething(true);
+        this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
             .then(respons =>{
-                this.props.toggleIsFething(false);
+                this.props.toggleIsFetching(false);
                 this.props.setUsers(respons.data.items);
             });
     }
