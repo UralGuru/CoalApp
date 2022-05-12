@@ -23,7 +23,6 @@ const Profile = (props) => {
                 <div>{props.profile.aboutMe}</div>
                 <div>
                     <h3>My Contacts:</h3>
-                    u.photos.small != null ? u.photos.small : userPhoto
                     <div>{props.profile.contacts.facebook}</div>
                     <div>{props.profile.contacts.website}</div>
                     <div>{props.profile.contacts.vk}</div>
