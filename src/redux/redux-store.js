@@ -13,4 +13,6 @@ let reduceres = combineReducers({
 
 let store = createStore(reduceres);
 
+window.store = store;
+
 export default store;

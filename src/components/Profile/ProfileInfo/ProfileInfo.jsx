@@ -1,13 +1,40 @@
 import { React } from 'react';
 import s from "./ProfileInfo.module.css";
 import Bamboo from '../../../assets/images/profil_image.jpg';
+import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/user.png";
 
-const Profile = () => {
+const Profile = (props) => {
+    if (!props.profile){
+        return <Preloader/>
+    }
+
+
+
+
+
+
     return (
         <div>
             <div><img className={s.img_content} src={Bamboo}></img></div>
 
-            <div className={s.descriptionBlock}>ava + description</div>
+            <div className={s.descriptionBlock}>
+                <img src={props.profile.photos.large}/>
+                <div>{props.profile.aboutMe}</div>
+                <div>
+                    <h3>My Contacts:</h3>
+                    u.photos.small != null ? u.photos.small : userPhoto
+                    <div>{props.profile.contacts.facebook}</div>
+                    <div>{props.profile.contacts.website}</div>
+                    <div>{props.profile.contacts.vk}</div>
+                    <div>{props.profile.contacts.twitter}</div>
+                    <div>{props.profile.contacts.instagram}</div>
+                    <div>{props.profile.contacts.youtube}</div>
+                    <div>{props.profile.contacts.github}</div>
+                    <div>{props.profile.contacts.mainLink}</div>
+
+                </div>
+            </div>
         </div>
     );
 }
