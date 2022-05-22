@@ -4,9 +4,10 @@ const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        "API-KEY": "f9dc0e4d-5052-4eb7-8925-4a8933dd8b17",
+        "API-KEY": "86e5cf2e-6e37-4a2b-b392-0666ebb1ea1f",
     }
 })
+
 
 export const userAPI = {
     getUsers(currentPage = 1, pageSize = 5)  {
