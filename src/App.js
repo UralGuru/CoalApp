@@ -12,6 +12,7 @@ import Settings from "./components/Settings/Settings";
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import Login from "./components/Login/login";
 
 
 
@@ -34,6 +35,9 @@ const App = (props) => {
 
                         <Route exact path="/dialogs"
                                element={<DialogsContainer store={props.store} />}/>
+
+                        <Route exact path="/login"
+                               element={<Login store={props.store} />}/>
 
                         <Route path="/users" element={<UsersContainer />}/>
                         <Route path="/news" element={<News />}/>
