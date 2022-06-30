@@ -8,6 +8,7 @@ import {
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {Navigate} from "react-router-dom";
+import {withAuthRedirec} from "../../hoc/withAuthRedirec";
 
 
 class UsersAPIContainer extends React.Component{
@@ -28,7 +29,6 @@ class UsersAPIContainer extends React.Component{
     }
 
     render() {
-        if (!this.props.isAuth) return <Navigate to={'/login'} />;
         return <>
             { this.props.isFetching ? <Preloader /> : null }
             <Users totalUsersCount={this.props.totalUsersCount}
@@ -54,9 +54,10 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress,
-        isAuth: state.auth.isAuth,
     }
 }
+
+let withRedirect = withAuthRedirec(UsersAPIContainer)
 
 let dispatch = {
     follow,
@@ -66,4 +67,4 @@ let dispatch = {
     getUsers,
 }
 
-export default connect(mapStateToProps, dispatch)(UsersAPIContainer);
+export default connect(mapStateToProps, dispatch)(withRedirect);
