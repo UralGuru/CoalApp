@@ -9,6 +9,7 @@ import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {Navigate} from "react-router-dom";
 import {withAuthRedirec} from "../../hoc/withAuthRedirec";
+import {compose} from "redux";
 
 
 class UsersAPIContainer extends React.Component{
@@ -57,8 +58,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-let withRedirect = withAuthRedirec(UsersAPIContainer)
-
 let dispatch = {
     follow,
     unfollow,
@@ -67,4 +66,7 @@ let dispatch = {
     getUsers,
 }
 
-export default connect(mapStateToProps, dispatch)(withRedirect);
+export default compose(
+    connect(mapStateToProps, dispatch),
+    withAuthRedirec,
+    )(UsersAPIContainer)
