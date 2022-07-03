@@ -4,22 +4,22 @@ import Bamboo from '../../../assets/images/profil_image.jpg';
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/user.png";
 
+import ProfileStatus from "./ProfileStatus"
+
+
 const Profile = (props) => {
     if (!props.profile){
         return <Preloader/>
     }
-
-
-
-
-
-
     return (
         <div>
             <div><img className={s.img_content} src={Bamboo}></img></div>
 
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
+
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+
                 <div>{props.profile.aboutMe}</div>
                 <div>
                     <h3>My Contacts:</h3>
