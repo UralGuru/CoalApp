@@ -49,9 +49,11 @@ const LoginForm = () => {
             <input placeholder={"Login"}
                    name='login'
                    type={"email"}
-                   onBlur={formik.handleBlur}
-                   onChange={formik.handleChange}
-                   value={formik.values.login}/>
+                   {...formik.getFieldProps('login')}
+                   // onBlur={formik.handleBlur}
+                   // onChange={formik.handleChange}
+                   // value={formik.values.login}
+            />
         </div>
         {formik.touched.login && formik.errors.login ? <div className={s.error}> {formik.errors.login} </div> : null}
 
@@ -59,9 +61,8 @@ const LoginForm = () => {
             <input placeholder={"Password"}
                    name='password'
                    type={"password"}
-                   onBlur={formik.handleBlur}
-                   onChange={formik.handleChange}
-                   value={formik.values.password}/>
+                   {...formik.getFieldProps('password')}
+            />
         </div>
         {formik.touched.password && formik.errors.password ? <div className={s.error}> {formik.errors.password} </div> : null}
 
