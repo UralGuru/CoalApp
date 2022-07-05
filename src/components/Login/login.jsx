@@ -16,8 +16,8 @@ const LoginForm = () => {
 
     const validationSchema = yup.object({
         login: yup.string()
-                        .email('Invalid email format')
-                        .required('Required'),
+            .email('Invalid email format')
+            .required('Required'),
         password: yup.string().required('Required'),
     });
 
@@ -27,22 +27,24 @@ const LoginForm = () => {
     return <Formik initialValues={initialValues}
                    validationSchema={validationSchema}
                    onSubmit={onSubmit}>
-        <Form>
+            <Form>
             <div className={s.formControl}>
                 <Field placeholder={"Login"}
                        name='login'
-                       type={"email"}
-                />
-            </div>
-            <ErrorMessage name={'login'} />
+                       type={"email"}/></div>
+            {/*<ErrorMessage name={'login'}/>*/}
+            <ErrorMessage name={'login'}>
+                {errorMessage => <div className={s.error}>{errorMessage}</div>}
+            </ErrorMessage>
 
             <div className={s.formControl}>
                 <Field placeholder={"Password"}
                        name='password'
-                       type={"password"}
-                />
-            </div>
-            <ErrorMessage name={'password'} />
+                       type={"password"}/></div>
+            {/*<ErrorMessage name={'password'}/>*/}
+            <ErrorMessage name={'password'}>
+                {errorMessage => <div className={s.error}>{errorMessage}</div>}
+            </ErrorMessage>
 
             <div>
                 <input type={"checkbox"}/>remember me
