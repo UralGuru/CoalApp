@@ -3,7 +3,7 @@ import {useFormik} from "formik";
 import * as yup from 'yup';
 import s from './login.module.css'
 
-const LoginForm = () => {
+const oldLoginForm = () => {
 
     let initialValues = {
         login: '',
@@ -77,8 +77,8 @@ const LoginForm = () => {
 
 const Login = (props) => {
     return <div>
-        <h1>Login</h1>
-        <LoginForm/>
+        <h1>Login11</h1>
+        <oldLoginForm/>
     </div>
 }
 

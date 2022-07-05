@@ -4,6 +4,40 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
 import {Navigate} from "react-router-dom";
+import {useFormik} from "formik";
+
+const DialogsForm = (props) => {
+    props = props.props;
+
+    let getNewMessage = props.dialogsPage.newMessageBody;
+    let onSendMessageClick = () => { props.sendMessage()};
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.updateNewMessageBody(body);
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            login: '',
+            password: '',
+        },
+        onSubmit: (values) => {
+            console.log(values);
+        }
+    });
+
+    return <form onSubmit={formik.handleSubmit}>
+        <div>
+                    <textarea value={getNewMessage}
+                              onChange={onNewMessageChange}
+                              placeholder='Enter your message'>
+                    </textarea>
+        </div>
+        <div>
+            <button onClick={onSendMessageClick}>Send</button>
+        </div>
+    </form>
+}
 
 const Dialogs = (props) => {
 
