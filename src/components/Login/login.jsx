@@ -1,5 +1,5 @@
 import React from 'react';
-import {Formik, Form, Field, ErrorMessage} from "formik";
+import {Formik, Form, Field, ErrorMessage, useFormik} from "formik";
 import * as yup from 'yup';
 import s from './login.module.css'
 
@@ -28,35 +28,35 @@ const LoginForm = () => {
                    validationSchema={validationSchema}
                    onSubmit={onSubmit}>
             <Form>
-            <div className={s.formControl}>
-                <Field placeholder={"Login"}
-                       name='login'
-                       type={"email"}/></div>
-            {/*<ErrorMessage name={'login'}/>*/}
-            <ErrorMessage name={'login'}>
-                {errorMessage => <div className={s.error}>{errorMessage}</div>}
-            </ErrorMessage>
+                <div className={s.formControl}>
+                    <Field placeholder={"Login"}
+                           name='login'
+                           type={"email"}/></div>
+                {/*<ErrorMessage name={'login'}/>*/}
+                <ErrorMessage name={'login'}>
+                    {errorMessage => <div className={s.error}>{errorMessage}</div>}
+                </ErrorMessage>
 
-            <div className={s.formControl}>
-                <Field placeholder={"Password"}
-                       name='password'
-                       type={"password"}/></div>
-            {/*<ErrorMessage name={'password'}/>*/}
-            <ErrorMessage name={'password'}>
-                {errorMessage => <div className={s.error}>{errorMessage}</div>}
-            </ErrorMessage>
+                <div className={s.formControl}>
+                    <Field placeholder={"Password"}
+                           name='password'
+                           type={"password"}/></div>
+                {/*<ErrorMessage name={'password'}/>*/}
+                <ErrorMessage name={'password'}>
+                    {errorMessage => <div className={s.error}>{errorMessage}</div>}
+                </ErrorMessage>
 
-            <div>
-                <input type={"checkbox"}/>remember me
-            </div>
+                <div>
+                    <input type={"checkbox"}/>remember me
+                </div>
 
-            <div>
-                <button type={"submit"}>LogIn</button>
-            </div>
-        </Form>
+                <div>
+                    <button type={"submit"}>LogIn</button>
+                </div>
+            </Form>
     </Formik>
 
-}
+};
 
 const Login = (props) => {
     return <div>
