@@ -1,8 +1,8 @@
 import { React } from 'react';
 import s from "./ProfileInfo.module.css";
-import Bamboo from '../../../assets/images/profil_image.jpg';
-import Preloader from "../../common/Preloader/Preloader";
-import userPhoto from "../../../assets/images/user.png";
+import Bamboo from '../../../../../assets/images/profil_image.jpg';
+import Preloader from "../../../../common/Preloader/Preloader";
+import userPhoto from "../../../../../assets/images/user.png";
 
 import ProfileStatus from "./ProfileStatus"
 

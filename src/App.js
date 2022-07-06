@@ -4,14 +4,14 @@ import './App.css';
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from './components/Navbar/Navbar';
 
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import DialogsContainer from "./components/Navbar/NavbarItems/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
+import News from "./components/Navbar/NavbarItems/News/News";
+import Music from "./components/Navbar/NavbarItems/Music/Music";
+import Settings from "./components/Navbar/NavbarItems/Settings/Settings";
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import ProfileContainer from "./components/Profile/ProfileContainer";
+import ProfileContainer from "./components/Navbar/NavbarItems/Profile/ProfileContainer";
 import Login from "./components/Login/login";
 
 

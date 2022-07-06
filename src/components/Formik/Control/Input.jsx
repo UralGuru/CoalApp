@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './style.module.css'
 import {Field, ErrorMessage} from "formik";
-import TextError from "./textError";
 
 
 const Input = (props) => {
@@ -10,7 +9,7 @@ const Input = (props) => {
         <div className={s.formControl}>
             <label htmlFor={name}>{label}</label>
             <Field id={name} name={name} {...rest} />
-            <ErrorMessage name={name} component={TextError} />
+            {/*<ErrorMessage name={name} component={TextError}/>*/}
         </div>
     )
 }

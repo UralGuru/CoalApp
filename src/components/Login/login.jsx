@@ -2,7 +2,7 @@ import React from 'react';
 import {Formik, Form, Field, ErrorMessage, useFormik} from "formik";
 import * as yup from 'yup';
 import s from '../Formik/Control/style.module.css';
-import FormikContainer from "../Formik/formikContainer";
+import FormikControl from "../Formik/formikControl";
 
 const LoginForm = () => {
 
@@ -27,33 +27,32 @@ const LoginForm = () => {
 
     return <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         {
-            formik => <Form>
-                <div className={s.formControl}>
-                    <Field placeholder={"Login"}
-                           name='login'
-                           type={"email"}/></div>
-                {/*<ErrorMessage name={'login'}/>*/}
-                <ErrorMessage name={'login'}>
-                    {errorMessage => <div className={s.error}>{errorMessage}</div>}
-                </ErrorMessage>
+            formik => {
+                return <Form>
+                            <div className={s.formControl}>
+                                {/*<FormikControl control={'input'} type={'email'} label={'Login'} name={'email'}/>*/}
+                                <Field placeholder={"Login"} name='login' type={"login"}/>
+                            </div>
+                            <ErrorMessage name={'login'}>
+                                {e => <div className={s.error}>{e}</div>}
+                            </ErrorMessage>
 
-                <div className={s.formControl}>
-                    <Field placeholder={"Password"}
-                           name='password'
-                           type={"password"}/></div>
-                {/*<ErrorMessage name={'password'}/>*/}
-                <ErrorMessage name={'password'}>
-                    {errorMessage => <div className={s.error}>{errorMessage}</div>}
-                </ErrorMessage>
+                            <div className={s.formControl}>
+                                <Field placeholder={"Password"} name='password' type={"password"}/>
+                            </div>
+                            <ErrorMessage name={'password'}>
+                                {e => <div className={s.error}>{e}</div>}
+                            </ErrorMessage>
 
-                <div>
-                    <input type={"checkbox"}/>remember me
-                </div>
+                            <div>
+                                <input type={"checkbox"}/>remember me
+                            </div>
 
-                <div>
-                    <button type={"submit"} disabled={!formik.isValid ||formik.isSubmitting}>LogIn</button>
-                </div>
-            </Form>
+                            <div>
+                                <button type={"submit"} disabled={!formik.isValid}>LogIn</button>
+                            </div>
+                </Form>
+            }
         }
 
     </Formik>
@@ -63,7 +62,6 @@ const LoginForm = () => {
 const Login = (props) => {
     return <div>
         <h1>Login</h1>
-        <FormikContainer />
         <LoginForm/>
     </div>
 }

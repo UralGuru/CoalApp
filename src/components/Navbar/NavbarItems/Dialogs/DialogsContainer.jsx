@@ -1,9 +1,9 @@
 import React from "react";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {Navigate} from "react-router-dom";
-import {withAuthRedirec} from "../../hoc/withAuthRedirec";
+import {withAuthRedirec} from "../../../../hoc/withAuthRedirec";
 import {compose} from "redux";
 
 

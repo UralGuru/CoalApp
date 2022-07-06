@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import Message from "../Message/Message";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../../redux/dialogs-reducer";
 import {Navigate} from "react-router-dom";
 import {useFormik} from "formik";
 

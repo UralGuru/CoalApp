@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import Preloader from "../common/Preloader/Preloader";
+import Preloader from "../../../common/Preloader/Preloader";
 import {Navigate} from "react-router-dom";
 
 const Profile = (props) => {
