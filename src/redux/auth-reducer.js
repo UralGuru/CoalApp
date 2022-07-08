@@ -40,13 +40,15 @@ export const getAuthUserData = () => (dispatch) => {
         })
 }
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe, setFieldValue) => (dispatch) => {
     return authAPI.login(email, password, rememberMe)
         .then(respons => {
             if (respons.data.resultCode === 0){
                 dispatch(getAuthUserData())
+            } else {
+                setFieldValue("general", respons.data.messages.join(" "))
             }
-        })
+        });
 }
 
 export const logout = () => (dispatch) => {

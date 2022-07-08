@@ -12,11 +12,12 @@ const LoginForm = (props) => {
         email: '',
         password: '',
         rememberMe: false,
+        general: ""
     };
 
-    const onSubmit = (values, { setSubmitting }) => {
+    const onSubmit = (values, {setFieldValue, setSubmitting }) => {
         //console.log(JSON.stringify(values, null, 2));
-        props.login(values.email, values.password, values.rememberMe);
+        props.login(values.email, values.password, values.rememberMe, setFieldValue);
         setSubmitting(false);
     }
 
@@ -49,6 +50,10 @@ const LoginForm = (props) => {
                             <ErrorMessage name={'password'}>
                                 {e => <div className={s.error}>{e}</div>}
                             </ErrorMessage>
+
+                            <div className={s.error}>
+                                {formik.values.general ? <span>{formik.values.general}</span>: null}
+                            </div>
 
                             <div>
                                 <Field name='rememberMe' type="checkbox"/>remember me
