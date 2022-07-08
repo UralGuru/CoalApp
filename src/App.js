@@ -5,7 +5,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from './components/Navbar/Navbar';
 
 import DialogsContainer from "./components/Navbar/NavbarItems/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+import UsersContainer from "./components/Navbar/NavbarItems/Users/UsersContainer";
 import News from "./components/Navbar/NavbarItems/News/News";
 import Music from "./components/Navbar/NavbarItems/Music/Music";
 import Settings from "./components/Navbar/NavbarItems/Settings/Settings";

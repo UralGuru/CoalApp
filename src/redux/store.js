@@ -1,6 +1,7 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
+import authReducer from "./auth-reducer";
 
 let store = {
     _state: {
@@ -26,7 +27,8 @@ let store = {
                 {id: 4, mes: "Yo"}],
             newMessageBody: ""
         },
-        sidebar: ""
+        sidebar: "",
+        isAuth: false,
     },
     _callSubscriber() { console.log("temp"); },
     getState() { return this._state },
@@ -51,6 +53,7 @@ let store = {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.messagePage = dialogsReducer(this._state.messagePage, action);
         this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._state.isAuth = authReducer(this._state.isAuth, action);
 
         this._callSubscriber(this._state)
     }

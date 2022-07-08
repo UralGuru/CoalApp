@@ -1,22 +1,27 @@
 import React from 'react';
-import {Formik, Form, Field, ErrorMessage, useFormik} from "formik";
+import {connect} from "react-redux";
+import {ErrorMessage, Field, Form, Formik, withFormik} from "formik";
 import * as yup from 'yup';
 import s from '../Formik/Control/style.module.css';
-import FormikControl from "../Formik/formikControl";
+import {bindActionCreators} from 'redux';
+import {login} from "../../redux/auth-reducer";
+import {Navigate} from "react-router-dom";
 
-const LoginForm = () => {
-
+const LoginForm = (props) => {
     let initialValues = {
-        login: '',
+        email: '',
         password: '',
+        rememberMe: false,
     };
 
-    let onSubmit = (values) => {
-        console.log(values);
-    };
+    const onSubmit = (values, { setSubmitting }) => {
+        //console.log(JSON.stringify(values, null, 2));
+        props.login(values.email, values.password, values.rememberMe);
+        setSubmitting(false);
+    }
 
     const validationSchema = yup.object({
-        login: yup.string()
+        email: yup.string()
             .email('Invalid email format')
             .required('Required'),
         password: yup.string().required('Required'),
@@ -24,6 +29,7 @@ const LoginForm = () => {
 
     //console.log('Formik errors ', formik.errors)
     //console.log('Formik touched ', formik.touched)
+    //console.log(formik.values)
 
     return <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         {
@@ -31,9 +37,9 @@ const LoginForm = () => {
                 return <Form>
                             <div className={s.formControl}>
                                 {/*<FormikControl control={'input'} type={'email'} label={'Login'} name={'email'}/>*/}
-                                <Field placeholder={"Login"} name='login' type={"login"}/>
+                                <Field placeholder={"Email"} name='email' type={"email"}/>
                             </div>
-                            <ErrorMessage name={'login'}>
+                            <ErrorMessage name={'email'}>
                                 {e => <div className={s.error}>{e}</div>}
                             </ErrorMessage>
 
@@ -45,7 +51,7 @@ const LoginForm = () => {
                             </ErrorMessage>
 
                             <div>
-                                <input type={"checkbox"}/>remember me
+                                <Field name='rememberMe' type="checkbox"/>remember me
                             </div>
 
                             <div>
@@ -54,16 +60,22 @@ const LoginForm = () => {
                 </Form>
             }
         }
-
     </Formik>
-
 };
 
-const Login = (props) => {
+function Login(props) {
+    if (props.isAuth){
+        return <Navigate to={'/profile'}/>
+    }
+
     return <div>
         <h1>Login</h1>
-        <LoginForm/>
+        <LoginForm login={props.login}/>
     </div>
-}
+};
 
-export default Login
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+});
+
+export default connect(mapStateToProps, {login})(Login)

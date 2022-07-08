@@ -4,11 +4,11 @@ import {
     follow, getUsers,
     setCurrentPage, toggleFollowingProgress,
     unfollow
-} from "../../redux/users-reducer";
+} from "../../../../redux/users-reducer";
 import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
+import Preloader from "../../../common/Preloader/Preloader";
 import {Navigate} from "react-router-dom";
-import {withAuthRedirec} from "../../hoc/withAuthRedirec";
+import {withAuthRedirec} from "../../../../hoc/withAuthRedirec";
 import {compose} from "redux";
 
 
