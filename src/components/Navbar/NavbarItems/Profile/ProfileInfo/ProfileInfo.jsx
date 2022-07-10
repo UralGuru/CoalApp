@@ -5,6 +5,7 @@ import Preloader from "../../../../common/Preloader/Preloader";
 import userPhoto from "../../../../../assets/images/user.png";
 
 import ProfileStatus from "./ProfileStatus"
+import ProfileStatusHOOK from "./ProfileStatusHOOK";
 
 
 const Profile = (props) => {
@@ -18,7 +19,7 @@ const Profile = (props) => {
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
 
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusHOOK status={props.status} updateStatus={props.updateStatus}/>
 
                 <div>{props.profile.aboutMe}</div>
                 <div>
