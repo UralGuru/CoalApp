@@ -1,8 +1,4 @@
-import {Component, React, useEffect, useState} from 'react';
-import s from "./ProfileInfo.module.css";
-import Bamboo from '../../../../../assets/images/profil_image.jpg';
-import Preloader from "../../../../common/Preloader/Preloader";
-import userPhoto from "../../../../../assets/images/user.png";
+import {React, useEffect, useState} from 'react';
 
 
 const ProfileStatusHOOK = (props) => {
@@ -11,7 +7,7 @@ const ProfileStatusHOOK = (props) => {
 
     useEffect(() => {
         setStatus(props.status)
-    }, [props.status]); 
+    }, [props.status]);
     
     const activatedEditMode = () => {
       setEditMode(true);
@@ -25,8 +21,6 @@ const ProfileStatusHOOK = (props) => {
     const onStatusChange = (e) => {
       setStatus(e.target.value)
     };
-
-
 
     return (
         <div>

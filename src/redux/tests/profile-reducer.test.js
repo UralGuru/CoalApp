@@ -1,5 +1,4 @@
-import profileReducer, {addPostActionCreator, deletePost, updateNewPostTextActionCreator} from "../profile-reducer";
-import { render, screen } from '@testing-library/react';
+import profileReducer, {addPostActionCreator, deletePost} from "../profile-reducer";
 
 let state = {
     posts: [
@@ -18,11 +17,8 @@ test('lenght of post should be incremented', () => {
 });
 
 test('after deleting length of message should be decrement', () => {
-    // 1. test data
     let action = deletePost(2);
-    // 2. action
     let newState = profileReducer(state, action);
-    // 3. expection
     expect(newState.posts.length).toBe(2);
 });
 

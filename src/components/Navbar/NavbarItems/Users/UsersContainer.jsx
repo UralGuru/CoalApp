@@ -21,18 +21,13 @@ import {
 class UsersAPIContainer extends React.Component{
 
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize} = this.props
+        this.props.requestUsers(currentPage, pageSize);
     }
 
     onPageChanged = (p) => {
         this.props.setCurrentPage(p);
         this.props.requestUsers(p, this.props.pageSize);
-
-        // this.props.toggleIsFetching(true);
-        // userAPI.getUsers(p, this.props.pageSize).then(data =>{
-        //         this.props.toggleIsFetching(false);
-        //         this.props.setUsers(data.items);
-        //     });
     }
 
     render() {
@@ -52,17 +47,6 @@ class UsersAPIContainer extends React.Component{
 
     }
 }
-
-// let mapStateToProps = (state) => {
-//     return {
-//         users: state.usersPage.users,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         followingInProgress: state.usersPage.followingInProgress,
-//     }
-// };
 
 let mapStateToProps = (state) => {
     return {
@@ -85,5 +69,4 @@ let dispatch = {
 
 export default compose(
     connect(mapStateToProps, dispatch),
-    withAuthRedirec,
-    )(UsersAPIContainer)
+    withAuthRedirec)(UsersAPIContainer)

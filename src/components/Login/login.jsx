@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {ErrorMessage, Field, Form, Formik, withFormik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as yup from 'yup';
 import s from '../Formik/Control/style.module.css';
-import {bindActionCreators} from 'redux';
 import {login} from "../../redux/auth-reducer";
 import {Navigate} from "react-router-dom";
 

@@ -13,7 +13,6 @@ const Dialogs = (props) => {
     let getMessage = state.messages.map(m => <Message mes={m.mes} key={m.id}/>);
     let getNewMessage = state.newMessageBody;
 
-
     let onSendMessageClick = () => {
         props.sendMessage()
     }
@@ -40,7 +39,6 @@ const Dialogs = (props) => {
                 <div>
                     <button onClick={onSendMessageClick}>Send</button>
                 </div>
-
             </div>
         </div>
     );

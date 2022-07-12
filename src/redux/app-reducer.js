@@ -1,4 +1,3 @@
-import {authAPI} from "../api/api";
 import {getAuthUserData} from "./auth-reducer";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
@@ -23,8 +22,6 @@ const authReducer = (state=initialState, action) => {
 
     return state;
 };
-
-
 
 export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 

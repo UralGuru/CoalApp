@@ -14,10 +14,7 @@ import {BrowserRouter, Routes, Route, withRouter} from "react-router-dom";
 import ProfileContainer from "./components/Navbar/NavbarItems/Profile/ProfileContainer";
 import Login from "./components/Login/login";
 import {connect} from "react-redux";
-import {getAuthUserData} from "./redux/auth-reducer";
-import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
-import Preloader from "./components/common/Preloader/Preloader";
 
 
 class App extends Component {
@@ -26,9 +23,9 @@ class App extends Component {
     }
 
     render() {
-        if(!this.props.initialized) {
-            return <Preloader/>
-        }
+        // if(!this.props.initialized) {
+        //     return <Preloader/>
+        // }
         return (
             <BrowserRouter>
                 <div className='app-wrapper'>

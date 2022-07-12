@@ -1,5 +1,5 @@
 import { React } from 'react';
-import logoBamboo from '../../assets/images/logo.png';
+import logoBamboo from '../../assets/images/logo.svg';
 import s from "./Header.module.css";
 import {NavLink} from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Header = (props) => {
                     ? <div>
                         {props.login}
                         <button onClick={props.logout}>LogOut</button>
-                    </div>
+                      </div>
                     : <NavLink to={'/login'}>Login</NavLink>}
             </div>
         </header>
