@@ -1,21 +1,29 @@
-import {Component, React} from 'react';
+import {Component} from 'react';
+import React from 'react';
 import './App.css';
+import {BrowserRouter, Routes, Route, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {initializeApp} from "./redux/app-reducer";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from './components/Navbar/Navbar';
 
-import DialogsContainer from "./components/Navbar/NavbarItems/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Navbar/NavbarItems/Users/UsersContainer";
 import News from "./components/Navbar/NavbarItems/News/News";
 import Music from "./components/Navbar/NavbarItems/Music/Music";
 import Settings from "./components/Navbar/NavbarItems/Settings/Settings";
+import Preloader from "./components/common/Preloader/Preloader";
 
-import {BrowserRouter, Routes, Route, withRouter} from "react-router-dom";
-import ProfileContainer from "./components/Navbar/NavbarItems/Profile/ProfileContainer";
-import Login from "./components/Login/login";
-import {connect} from "react-redux";
-import {initializeApp} from "./redux/app-reducer";
+const ProfileContainer =  React.lazy(() => import('./components/Navbar/NavbarItems/Profile/ProfileContainer'));
+const Login =  React.lazy(() => import('./components/Login/login'));
+const UsersContainer =  React.lazy(() => import('./components/Navbar/NavbarItems/Users/UsersContainer'));
+const DialogsContainer =  React.lazy(() => import('./components/Navbar/NavbarItems/Dialogs/DialogsContainer'));
 
+
+
+//const ProfileContainer = React.lazy(() => import("./components/Navbar/NavbarItems/Profile/ProfileContainer"));
+//const Login = React.lazy(() => import("./components/Login/login"));
+//const UsersContainer = React.lazy(() => import("./components/Navbar/NavbarItems/Users/UsersContainer"));
+//const DialogsContainer = React.lazy(() => import("./components/Navbar/NavbarItems/Dialogs/DialogsContainer"));
 
 class App extends Component {
     componentDidMount() {
@@ -33,25 +41,27 @@ class App extends Component {
                     <Navbar/>
 
                     <div className="app-wrapper-content">
+                        <React.Suspense fallback={<div><Preloader /></div>}>
                         <Routes>
-                            <Route path="/profile/:userId"
-                                   element={<ProfileContainer store={this.props.store}/>}/>
 
-                            <Route path="/profile"
-                                   element={<ProfileContainer store={this.props.store}/>}/>
+                                <Route path="/profile/:userId"
+                                       element={<ProfileContainer store={this.props.store}/>}/>
+                                <Route path="/profile"
+                                       element={<ProfileContainer store={this.props.store}/>}/>
+                                <Route exact path="/dialogs"
+                                       element={<DialogsContainer store={this.props.store}/>}/>
+                                <Route exact path="/login"
+                                       element={<Login store={this.props.store}/>}/>
+                                <Route path="/users"
+                                       element={<UsersContainer/>}/>
 
-                            <Route exact path="/dialogs"
-                                   element={<DialogsContainer store={this.props.store}/>}/>
-
-                            <Route exact path="/login"
-                                   element={<Login store={this.props.store}/>}/>
-
-                            <Route path="/users" element={<UsersContainer/>}/>
-                            <Route path="/news" element={<News/>}/>
-                            <Route path="/music" element={<Music/>}/>
-                            <Route path="/settings" element={<Settings/>}/>
+                                <Route path="/news" element={<News/>}/>
+                                <Route path="/music" element={<Music/>}/>
+                                <Route path="/settings" element={<Settings/>}/>
                         </Routes>
-                    </div>
+                </React.Suspense>
+
+            </div>
                 </div>
             </BrowserRouter>
 
