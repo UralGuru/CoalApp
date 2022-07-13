@@ -1,6 +1,7 @@
 import { React } from 'react';
 import s from "./ProfileInfo.module.css";
 import Bamboo from '../../../../../assets/images/profil_image.jpg';
+import userPhoto from "../../../../../assets/images/user.png";
 import Preloader from "../../../../common/Preloader/Preloader";
 import ProfileStatusHOOK from "./ProfileStatusHOOK";
 
@@ -14,7 +15,7 @@ const Profile = (props) => {
             <div><img className={s.img_content} src={Bamboo} /></div>
 
             <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large}/>
+                <img src={props.profile.photos.large || userPhoto}/>
 
                 <ProfileStatusHOOK status={props.status} updateStatus={props.updateStatus}/>
 

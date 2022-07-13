@@ -9,7 +9,7 @@ import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.router.params.userId ;
         if (!userId) {
             userId = this.props.authorizedUserId;
@@ -19,6 +19,14 @@ class ProfileContainer extends React.Component {
         };
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
+    }
+
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.refreshProfile()
     }
 
     render() {

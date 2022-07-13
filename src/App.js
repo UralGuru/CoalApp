@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Routes, Route, withRouter} from "react-router-dom";
+import {HashRouter, Routes, Route, withRouter, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 
@@ -36,6 +36,7 @@ class App extends Component {
         // }
         return (
             <BrowserRouter>
+                {/*HashRouter*/}
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <Navbar/>

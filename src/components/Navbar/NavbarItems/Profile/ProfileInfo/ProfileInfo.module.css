@@ -3,6 +3,10 @@
     height: 300px;
 }
 
+img{
+    height: 100px;
+}
+
 .descriptionBlock{
     padding: 10px;
 }
