@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/CoalApp/static/css/main.1e83834b.css",
+    "main.js": "/CoalApp/static/js/main.453affe3.js",
+    "static/css/518.51cb32eb.chunk.css": "/CoalApp/static/css/518.51cb32eb.chunk.css",
+    "static/js/518.c9a9c5ce.chunk.js": "/CoalApp/static/js/518.c9a9c5ce.chunk.js",
+    "static/css/240.a4a43c13.chunk.css": "/CoalApp/static/css/240.a4a43c13.chunk.css",
+    "static/js/240.3971f6ca.chunk.js": "/CoalApp/static/js/240.3971f6ca.chunk.js",
+    "static/css/652.0ba5eba6.chunk.css": "/CoalApp/static/css/652.0ba5eba6.chunk.css",
+    "static/js/652.be629e8a.chunk.js": "/CoalApp/static/js/652.be629e8a.chunk.js",
+    "static/css/721.6a07f49b.chunk.css": "/CoalApp/static/css/721.6a07f49b.chunk.css",
+    "static/js/721.6e6f421d.chunk.js": "/CoalApp/static/js/721.6e6f421d.chunk.js",
+    "static/js/787.28cb0dcd.chunk.js": "/CoalApp/static/js/787.28cb0dcd.chunk.js",
+    "static/js/325.baf0586e.chunk.js": "/CoalApp/static/js/325.baf0586e.chunk.js",
+    "static/media/profil_image.jpg": "/CoalApp/static/media/profil_image.5c75409e3d7b26fd91ef.jpg",
+    "static/media/user.png": "/CoalApp/static/media/user.ff78898164b887b1bb53.png",
+    "static/media/preloader.svg": "/CoalApp/static/media/preloader.21898cf61ee9610e187b03f58e3c94c2.svg",
+    "static/media/logo.svg": "/CoalApp/static/media/logo.7b7b3a4b283ba4ccf4128bd6373c24d7.svg",
+    "index.html": "/CoalApp/index.html",
+    "main.1e83834b.css.map": "/CoalApp/static/css/main.1e83834b.css.map",
+    "main.453affe3.js.map": "/CoalApp/static/js/main.453affe3.js.map",
+    "518.51cb32eb.chunk.css.map": "/CoalApp/static/css/518.51cb32eb.chunk.css.map",
+    "518.c9a9c5ce.chunk.js.map": "/CoalApp/static/js/518.c9a9c5ce.chunk.js.map",
+    "240.a4a43c13.chunk.css.map": "/CoalApp/static/css/240.a4a43c13.chunk.css.map",
+    "240.3971f6ca.chunk.js.map": "/CoalApp/static/js/240.3971f6ca.chunk.js.map",
+    "652.0ba5eba6.chunk.css.map": "/CoalApp/static/css/652.0ba5eba6.chunk.css.map",
+    "652.be629e8a.chunk.js.map": "/CoalApp/static/js/652.be629e8a.chunk.js.map",
+    "721.6a07f49b.chunk.css.map": "/CoalApp/static/css/721.6a07f49b.chunk.css.map",
+    "721.6e6f421d.chunk.js.map": "/CoalApp/static/js/721.6e6f421d.chunk.js.map",
+    "787.28cb0dcd.chunk.js.map": "/CoalApp/static/js/787.28cb0dcd.chunk.js.map",
+    "325.baf0586e.chunk.js.map": "/CoalApp/static/js/325.baf0586e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e83834b.css",
+    "static/js/main.453affe3.js"
+  ]
+}
