@@ -26,7 +26,9 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.refreshProfile()
+        if (this.props.router.params.userId !== prevProps.router.params.userId){
+            this.refreshProfile()
+        }
     }
 
     render() {
