@@ -35,7 +35,7 @@ class App extends Component {
             return <Preloader/>
         }
         return (
-            <BrowserRouter>
+            <HashRouter>
                 {/*HashRouter*/}
                 <div className='app-wrapper'>
                     <HeaderContainer/>
@@ -64,7 +64,7 @@ class App extends Component {
 
             </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
 
         );
     }
