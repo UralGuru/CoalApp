@@ -3,10 +3,14 @@
     height: 300px;
 }
 
-img{
-    height: 100px;
+.avatar{
+    width: 20%;
 }
 
 .descriptionBlock{
     padding: 10px;
+}
+
+.contactInems{
+    margin-left: 30px;
 }

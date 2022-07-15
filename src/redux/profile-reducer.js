@@ -1,10 +1,13 @@
 import {profileAPI, userAPI} from "../api/api";
+import profile from "../components/Navbar/NavbarItems/Profile/Profile";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const DELETE_POST = 'DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
+const SAVE_PROFILE_SUCCESS = 'SAVE_PROFILE_SUCCESS';
 
 let initialState = {
     posts: [
@@ -49,10 +52,15 @@ const profileReducer = (state = initialState, action) => {
         case DELETE_POST: {
             return {...state, posts: state.posts.filter(p => p.postID !== action.postID)}
         }
+        case SAVE_PHOTO_SUCCESS: {
+            return {...state, profile: {...state.profile, photos: action.photos}}
+        }
+        case SAVE_PROFILE_SUCCESS: {
+            return {...state, profile: action.profile}
+        }
         default:
             return state;
     }
-    return state
 };
 
 
@@ -60,6 +68,8 @@ export const addPostActionCreator = () => ({type: ADD_POST});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatys = (status) => ({type: SET_STATUS, status});
 export const deletePost = (postID) => ({type: DELETE_POST, postID});
+export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos});
+export const saveProfileSuccess = (profile) => ({type: SAVE_PROFILE_SUCCESS, profile});
 
 export const getUserProfile = (userId) => async (dispatch) => {
     let response = await userAPI.getProfile(userId);
@@ -75,6 +85,19 @@ export const updateStatus = (status) => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(setStatys(status));
     };
+};
+export const savePhoto = (photo) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(photo);
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos));
+    };
+};
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const response = await profileAPI.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    }
 };
 export const updateNewPostTextActionCreator = (text) => {
     return {
