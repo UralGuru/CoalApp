@@ -4,6 +4,8 @@ import './App.css';
 import {HashRouter, Routes, Route, withRouter, BrowserRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
+import {Navigate} from "react-router-dom";
+
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from './components/Navbar/Navbar';
@@ -44,6 +46,9 @@ class App extends Component {
                     <div className="app-wrapper-content">
                         <React.Suspense fallback={<div><Preloader /></div>}>
                         <Routes>
+
+                                <Route exact path="/"
+                                       element={<Navigate to={'/profile'}/>}/>
 
                                 <Route path="/profile/:userId"
                                        element={<ProfileContainer store={this.props.store}/>}/>
