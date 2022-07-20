@@ -11,12 +11,13 @@ const LoginForm = (props) => {
         email: '',
         password: '',
         rememberMe: false,
+        captcha: "",
         general: ""
     };
 
     const onSubmit = (values, {setFieldValue, setSubmitting }) => {
         //console.log(JSON.stringify(values, null, 2));
-        props.login(values.email, values.password, values.rememberMe, setFieldValue);
+        props.login(values.email, values.password, values.rememberMe, values.captcha, setFieldValue);
         setSubmitting(false);
     }
 
@@ -59,6 +60,11 @@ const LoginForm = (props) => {
                             </div>
 
                             <div>
+                                <div>{props.captchaURL && <img src={props.captchaURL}/>}</div>
+                                <div>{props.captchaURL && <Field placeholder={"Captcha symbols"} name='captcha' type={"text"}/>}</div>
+                            </div>
+
+                            <div>
                                 <button type={"submit"} disabled={!formik.isValid}>LogIn</button>
                             </div>
                 </Form>
@@ -74,11 +80,12 @@ function Login(props) {
 
     return <div>
         <h1>Login</h1>
-        <LoginForm login={props.login}/>
+        <LoginForm login={props.login} captchaURL={props.captchaURL}/>
     </div>
 };
 
 const mapStateToProps = (state) => ({
+     captchaURL: state.auth.captchaURL,
     isAuth: state.auth.isAuth
 });
 
